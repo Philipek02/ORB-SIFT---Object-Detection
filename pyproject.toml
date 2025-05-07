@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "orb i sift"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[[tool.poetry.source]]
+name = "nvidia"
+url  = "https://pypi.nvidia.com"
+default = false 
+
+[tool.poetry.dependencies]
+python = "^3.12"
+opencv-python   = {version = "^4.11.0.86", optional = true}
+nvidia-opencv-cu118 = {version = "4.10.0.post1", optional = true, source = "nvidia"}
+matplotlib = "^3.10.1"
+tqdm = "^4.67.1"
+ipykernel = "^6.29.5"
+ipywidgets = "^8.1.6"
+iprogress = "^0.4"
+
+[tool.poetry.extras]
+cpu  = ["opencv-python"]
+cuda118 = ["nvidia-opencv-cu118"]
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
